@@ -1,0 +1,542 @@
+:root {
+    --primary: #0284c7;        /* Azul clínico premium */
+    --primary-light: #e0f2fe;  /* Fondo de realce azul */
+    --dark: #0f172a;           /* Gris pizarra profundo (casi negro médico) */
+    --text-muted: #64748b;     /* Gris para subtítulos y etiquetas */
+    --light-bg: #f4f7f6;       /* Fondo general ultra suave (estilo imagen 2) */
+    --white: #ffffff;
+    --whatsapp: #25d366;
+    --gray-border: #e2e8f0;
+    --radius-lg: 20px;         /* Bordes súper redondeados como la interfaz elegida */
+    --radius-md: 14px;
+    --shadow-sm: 0 4px 10px -1px rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background: radial-gradient(circle at top right, #e0f2fe 0%, var(--light-bg) 40%);
+    background-attachment: fixed;
+    margin: 0;
+    padding: 24px 16px;
+    color: var(--dark);
+    -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: left; /* Alineación moderna como en los mockups */
+    margin-bottom: 24px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+header h1 {
+    margin: 0 0 6px 0;
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--dark);
+    letter-spacing: -0.03em;
+}
+
+header p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+header p i {
+    color: var(--primary);
+}
+
+/* --- Sistema de Pedido Estilo Burbuja Flotante --- */
+.pedido-container {
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: white;
+    padding: 14px 20px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 20px;
+    display: none; 
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 20px 30px -10px rgba(15, 23, 42, 0.3);
+    position: sticky;
+    top: 20px;
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pedido-container span {
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-ws { 
+    background: var(--whatsapp); 
+    color: white; 
+    border: none; 
+    padding: 10px 18px; 
+    border-radius: var(--radius-md); 
+    font-weight: 700; 
+    font-size: 0.9rem;
+    cursor: pointer; 
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.25);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-ws:hover { background: #1fb956; transform: translateY(-1px); }
+
+.btn-clear { 
+    background: rgba(239, 68, 68, 0.2); 
+    color: #f87171; 
+    border: none; 
+    padding: 10px 14px; 
+    border-radius: var(--radius-md); 
+    cursor: pointer; 
+    margin-left: 6px; 
+    transition: all 0.2s;
+}
+.btn-clear:hover { background: #ef4444; color: white; }
+
+/* --- Buscador y Filtro Soft --- */
+.search-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.input-group, .select-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-group i {
+    position: absolute;
+    left: 18px;
+    color: #a0aec0;
+    font-size: 1.1rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 15px 16px 15px 48px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-lg);
+    font-size: 16px; 
+    font-weight: 500;
+    color: var(--dark);
+    background-color: var(--white);
+    outline: none;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.25s ease;
+}
+
+input::placeholder {
+    color: #a0aec0;
+}
+
+input:focus, select:focus {
+    border-color: rgba(2, 132, 199, 0.3);
+    background-color: var(--white);
+    box-shadow: 0 10px 20px -5px rgba(2, 132, 199, 0.08), 0 0 0 4px rgba(2, 132, 199, 0.1);
+}
+
+select {
+    padding-left: 18px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b' stroke-width='2.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    background-size: 16px;
+}
+
+/* --- SECCIÓN PERFILES CLÍNICOS (ESTILO MOCKUP 2) --- */
+.perfiles-section {
+    margin: 28px 0;
+}
+
+.section-title {
+    font-size: 1.05rem;
+    color: var(--dark);
+    margin: 0 0 14px 4px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title i {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.perfiles-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna perfecta y limpia para móviles */
+    gap: 16px;
+}
+
+.perfil-card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(226, 232, 240, 0.7);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s var(--shadow-sm), box-shadow 0.3s ease;
+}
+
+/* Decoración estética de fondo sutil inspirada en microscopía */
+.perfil-card::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(2, 132, 199, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.perfil-card h3 {
+    color: var(--dark);
+    margin: 0 0 14px 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.perfil-ul {
+    padding-left: 0;
+    list-style: none;
+    margin: 0 0 16px 0;
+}
+
+.perfil-li {
+    padding: 9px 0;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.92rem;
+    color: #334155;
+    font-weight: 500;
+}
+
+.perfil-li:last-child {
+    border-bottom: none;
+}
+
+.info-btn-perfil {
+    background: var(--primary-light);
+    color: var(--primary);
+    border: none;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.info-btn-perfil:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.perfil-obs {
+    background: #fafafa;
+    padding: 12px 14px;
+    border-radius: var(--radius-md);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    border-left: 4px solid var(--primary);
+    line-height: 1.45;
+    font-weight: 500;
+}
+
+/* --- Lista de Determinaciones Base --- */
+#examList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#examList li {
+    background: var(--white);
+    margin-bottom: 12px;
+    padding: 18px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(241, 245, 249, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    animation: fadeIn 0.35s ease;
+}
+
+#examList li:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: #e2e8f0;
+}
+
+.wrapper-izquierdo {
+    display: flex;
+    align-items: center;
+}
+
+.tubo-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 14px;
+    box-shadow: inset 0 0 0 2px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* Reflejo 3D realista en los indicadores de tubo */
+.tubo-color::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    width: 4px;
+    height: 4px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+}
+
+.color-rojo { background-color: #ef4444; }
+.color-lila { background-color: #a855f7; }
+.color-celeste { background-color: #38bdf8; }
+.color-negro { background-color: #334155; }
+.color-verde { background-color: #22c55e; }
+.color-esteril { background-color: #f59e0b; border: 2px solid #3b82f6 !important; }
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 8px;
+    letter-spacing: 0.02em;
+}
+.urgencia-alta { background: #fee2e2; color: #991b1b; }
+.urgencia-media { background: #fef9c3; color: #854d0e; }
+.urgencia-baja { background: #dcfce7; color: #166534; }
+
+/* --- Ventana Modal Fluid Glass --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--white);
+    padding: 26px;
+    border-radius: 28px;
+    width: 92%;
+    max-width: 420px;
+    position: relative;
+    box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.25);
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    animation: modalSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.close {
+    position: absolute;
+    right: 22px;
+    top: 20px;
+    font-size: 22px;
+    color: #94a3b8;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f1f5f9;
+    transition: all 0.2s;
+}
+.close:hover { color: var(--dark); background: #e2e8f0; }
+
+.modal-header-analisis {
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+    padding-right: 24px;
+}
+.modal-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin: 0 0 6px 0;
+    letter-spacing: -0.02em;
+}
+.modal-sector {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--primary);
+    background: var(--primary-light);
+    padding: 4px 10px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* Tabs Estilo Tarjeta */
+.modal-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: var(--radius-md);
+}
+
+.tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.tab-btn.active.tab-paciente { background: var(--white); color: #166534; box-shadow: var(--shadow-sm); }
+.tab-btn.active.tab-tecnico { background: var(--white); color: var(--primary); box-shadow: var(--shadow-sm); }
+
+.seccion-modal-paciente { background-color: #f0fdf4; border: 1px solid #dcfce7; border-radius: var(--radius-md); padding: 16px; margin-bottom: 14px; }
+.seccion-modal-tecnico { background-color: var(--light-bg); border: 1px solid #e2e8f0; border-radius: var(--radius-md); padding: 16px; margin-bottom: 20px; }
+
+.modal-subtitulo { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 6px 0; }
+.modal-subtitulo.paciente { color: #166534; }
+.modal-subtitulo.tecnico { color: #334155; }
+.modal-texto { font-size: 0.92rem; color: #334155; line-height: 1.55; margin: 0; }
+
+.btn-whatsapp-premium {
+    width: 100%;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 8px 20px -6px rgba(2, 132, 199, 0.4);
+    transition: all 0.2s;
+}
+.btn-whatsapp-premium:hover { transform: translateY(-1px); filter: brightness(1.05); }
+
+/* --- Footer Integrado --- */
+footer {
+    text-align: center;
+    margin-top: 48px;
+    padding: 28px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(6px);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+footer strong {
+    display: block;
+    color: var(--dark);
+    font-size: 1.1rem;
+    margin-top: 4px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+footer span {
+    display: block;
+    font-size: 0.8rem;
+    margin-top: 2px;
+}
+
+.footer-tag {
+    margin-top: 6px;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* --- Animaciones Fluidas --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes modalSlideUp {
+    from { opacity: 0; transform: translateY(30px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
