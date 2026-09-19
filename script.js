@@ -2,7 +2,7 @@ let pedidoActual = [];
 const determinaciones = [
   // SECTOR HEMATOLOGÍA
  { nombre: "Eritrosedimentación", area: "Hematología", muestra: "Sangre entera con EDTA", tubo: "Lila (EDTA)", toma: "Punción venosa", urgencia: "Media", ayuno: "8 hs", procesamiento: "Dentro de las 4 hs", obs: "Temperatura ambiente.", prepPaciente: "Concurrir con ayuno de 8 hs." },
-  { nombre: "Hemograma", area: "Hematología", muestra: "Sangre entera con EDTA", tubo: "Lila (EDTA)", toma: "Punción venosa", urgencia: "Alta", ayuno: "8 hs", procesamiento: "Dentro de las 4 hs", obs: "Temperatura ambiente.", prepPaciente: "Concurrir con ayuno de 8 hs." },
+  { nombre: "Hemograma", area: "Hematología", muestra: "Sangre entera con EDTA", tubo: "Lila (EDTA)", toma: "Punción venosa", urgencia: "Alta", ayuno: "No requiere", procesamiento: "Dentro de las 4 hs", obs: "Temperatura ambiente.", prepPaciente: "No requiere ayuno" },
   { nombre: "Gota Gruesa", area: "Hematología", muestra: "Punción capilar", tubo: "Extendido", toma: "Punción capilar", urgencia: "Alta", ayuno: "8 hs", procesamiento: "Inmediato", obs: "Enviar en recipiente seco (sin hielo).", prepPaciente: "Concurrir con ayuno de 8 hs." },
   { nombre: "Recuento de reticulocitos", area: "Hematología", muestra: "Sangre entera con EDTA", tubo: "Lila (EDTA)", toma: "Punción venosa", urgencia: "Media", ayuno: "8 hs", procesamiento: "Antes de 1 h", obs: "Procesar en el momento o antes de la hora de extracción.", prepPaciente: "Concurrir con ayuno de 8 hs." },
   
