@@ -1,10 +1,10 @@
 let pedidoActual = [];
 const determinaciones = [
   // SECTOR HEMATOLOGÍA
- { nombre: "Eritrosedimentación", area: "Hematología", muestra: "Sangre entera con EDTA", tubo: "Lila (EDTA)", toma: "Ayuno 8hs", urgencia: "Media", procesamiento: "Dentro de las 4hs", obs: "Temperatura ambiente." },
-  { nombre: "Hemograma", area: "Hematología", muestra: "Sangre entera con EDTA", tubo: "Lila (EDTA)", toma: "Ayuno 8hs", urgencia: "Alta", procesamiento: "Dentro de las 4hs", obs: "Conservación Temperatura ambiente." },
-  { nombre: "Gota Gruesa", area: "Hematología", muestra: "Punción capilar", tubo: "Extendido", toma: "Ayuno 8hs", urgencia: "Alta", procesamiento: "Inmediato", obs: "Enviar en recipiente seco (sin hielo)." },
-  { nombre: "Recuento de reticulocitos", area: "Hematología", muestra: "Sangre entera con EDTA", tubo: "Lila (EDTA)", toma: "Ayuno 8hs", urgencia: "Media", procesamiento: "Antes de 1h", obs: "Procesar en el momento o antes de la hora de extracción." },
+ { nombre: "Eritrosedimentación", area: "Hematología", muestra: "Sangre entera con EDTA", tubo: "Lila (EDTA)", toma: "Punción venosa", urgencia: "Media", ayuno: "8 hs", procesamiento: "Dentro de las 4 hs", obs: "Temperatura ambiente.", prepPaciente: "Concurrir con ayuno de 8 hs." },
+  { nombre: "Hemograma", area: "Hematología", muestra: "Sangre entera con EDTA", tubo: "Lila (EDTA)", toma: "Punción venosa", urgencia: "Alta", ayuno: "8 hs", procesamiento: "Dentro de las 4 hs", obs: "Temperatura ambiente.", prepPaciente: "Concurrir con ayuno de 8 hs." },
+  { nombre: "Gota Gruesa", area: "Hematología", muestra: "Punción capilar", tubo: "Extendido", toma: "Punción capilar", urgencia: "Alta", ayuno: "8 hs", procesamiento: "Inmediato", obs: "Enviar en recipiente seco (sin hielo).", prepPaciente: "Concurrir con ayuno de 8 hs." },
+  { nombre: "Recuento de reticulocitos", area: "Hematología", muestra: "Sangre entera con EDTA", tubo: "Lila (EDTA)", toma: "Punción venosa", urgencia: "Media", ayuno: "8 hs", procesamiento: "Antes de 1 h", obs: "Procesar en el momento o antes de la hora de extracción.", prepPaciente: "Concurrir con ayuno de 8 hs." },
   
   // SECTOR HEMOSTASIA
   {// ==========================================
@@ -142,17 +142,17 @@ nombre: "Tiempo de Protrombina (TP / TPCS2)", area: "Hemostasia", muestra: "Plas
 { nombre: "Insulina", area: "Endocrinología", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa (Por la mañana)", urgencia: "Baja", ayuno: "8 hs", centrifugar: "Sí", separar: "Sí", procesamiento: "Diario", obs: "Refrigerar hasta 24 hs o congelar." },
 { nombre: "Péptido C", area: "Endocrinología", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa (Por la mañana)", urgencia: "Baja", ayuno: "8 hs", centrifugar: "Sí", separar: "Sí", procesamiento: "Inmediato", obs: "Centrifugar inmediatamente el suero tras la retracción del coágulo y llevar directo al sector." },
 { nombre: "Tiroglobulina", area: "Endocrinología", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa", urgencia: "Baja", ayuno: "8 hs", centrifugar: "Sí", separar: "Sí", procesamiento: "Diario", obs: "Refrigerar hasta 3 días. Interfiere la hemólisis de manera estricta." },
-{ nombre: "Homocisteína", area: "Endocrinología", muestra: "Plasma con EDTA", tubo: "Lila (EDTA)", toma: "Punción venosa", urgencia: "Baja", ayuno: "8 hs", centrifugar: "Sí", separar: "Sí", procesamiento: "Inmediato", obs: "CRÍTICO: Usar tubo lila. Centrifugar inmediatamente y separar. El plasma separado es estable hasta 14 días refrigerado." },
+{ nombre: "Homocisteína", area: "Endocrinología", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa", urgencia: "Baja", ayuno: "8 hs", centrifugar: "Sí", separar: "Sí", procesamiento: "Suero separado: refrigerar hasta 14 días", obs: "Centrifugar inmediatamente y separar el suero." },
 { nombre: "Marcador Tumoral CA 19.9", area: "Endocrinología", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa", urgencia: "Baja", ayuno: "No requiere", centrifugar: "Sí", separar: "Sí", procesamiento: "Diario", obs: "Refrigerar hasta 48 hs o congelar." },
 { nombre: "Monitoreo Terapéutico: Vancomicina", area: "Endocrinología", muestra: "Suero o Plasma EDTA", tubo: "Rojo/Amarillo o Lila", toma: "Punción venosa", urgencia: "Media", ayuno: "No requiere", centrifugar: "Sí", separar: "Sí", procesamiento: "Diario", obs: "CRÍTICO: Consignar de forma obligatoria en la orden si la muestra se tomó en VALLE (justo antes de la dosis) o en PICO (post-infusión)." },
 { nombre: "Marcador Tumoral AFP (Alfa Feto Proteína)", area: "Endocrinología", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa", urgencia: "Baja", ayuno: "No requiere", centrifugar: "Sí", separar: "Sí", procesamiento: "Diario", obs: "Refrigerar hasta 3 días." },
-{ nombre: "Marcador Tumoral CA 125", area: "Endocrinología", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa", urgencia: "Baja", ayuno: "No requiere", centrifugar: "Sí", separar: "Sí", procesamiento: "Diario", obs: "CRÍTICO: No realizar la extracción si la paciente se encuentra menstruando." },
+{ nombre: "Marcador Tumoral CA 125", area: "Endocrinología", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa", urgencia: "Baja", ayuno: "No especifica", centrifugar: "Sí", separar: "Sí", procesamiento: "Refrigerar hasta 24 hs o congelar", obs: "CRÍTICO: No realizar la extracción si la paciente se encuentra menstruando." },
 { nombre: "Marcador Tumoral CA 15-3", area: "Endocrinología", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa", urgencia: "Baja", ayuno: "No requiere", centrifugar: "Sí", separar: "Sí", procesamiento: "Diario", obs: "Refrigerar hasta 5 días." },
 { nombre: "Marcador Tumoral CEA (Antígeno Carcinocembrionario)", area: "Endocrinología", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa", urgencia: "Baja", ayuno: "No requiere", centrifugar: "Sí", separar: "Sí", procesamiento: "Diario", obs: "Refrigerar hasta 7 días." },
 { nombre: "Deoxipiridinolina / Resorción Ósea (DPYR)", area: "Endocrinología", muestra: "Primer orina de la mañana o de 2 hs", tubo: "Frasco de Orina Limpio", toma: "Recolectar antes de las 10:00 AM", urgencia: "Baja", ayuno: "No requiere", centrifugar: "No", separar: "No", procesamiento: "Diario", obs: "Pegar la etiqueta identificatoria directo en el cuerpo del frasco. Interfiere la bilirrubina y la hemólisis." },
 { nombre: "PSA / PSA Libre (Antígeno Prostático)", area: "Endocrinología", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa", urgencia: "Baja", ayuno: "8 hs", centrifugar: "Sí", separar: "Sí", procesamiento: "Diario", obs: "CRÍTICO PACIENTE: No tener relaciones sexuales 2 días antes. Esperar 3 semanas si se realizó ecografía transrectal, tacto rectal o uso de sonda. Sin diarrea/estreñimiento exagerado 1 semana antes. No ingerir alcohol la noche anterior. Sin ejercicio el día anterior. No extraer si cursa infección urinaria o fiebre." },
-{ nombre: "Subunidad Beta de HCG Libre (Screening 1° Trimestre)", area: "Endocrinología", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa (Semanas 8 a 13)", urgencia: "Baja", ayuno: "8 hs", centrifugar: "Sí", separar: "Sí", procesamiento: "Especial", obs: "Screening del primer trimestre (preferentemente semana 11 o 12). OBLIGATORIO: Consignar en el sistema Fecha de toma, FUM y semanas de embarazo exactas. Almacenar hasta 24 hs a 2-8°C, luego congelar a -20°C." },
-{ nombre: "PAPP-A / Proteína Plasmática Asociada al Embarazo", area: "Endocrinología", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa (Semanas 8 a 13)", urgencia: "Baja", ayuno: "8 hs", centrifugar: "Sí", separar: "Sí", procesamiento: "Especial", obs: "Screening del primer trimestre (preferentemente semana 11 o 12). OBLIGATORIO: Consignar en el sistema Fecha de toma, FUM y semanas de embarazo exactas. Almacenar hasta 24 hs a 2-8°C, luego congelar a -20°C." },
+{ nombre: "Subunidad Beta de HCG Libre (Screening 1° Trimestre)", area: "Endocrinología", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa (semanas 10 a 13+6)", urgencia: "Baja", ayuno: "No especifica", centrifugar: "Sí", separar: "Sí", procesamiento: "Conservar hasta 24 hs a 2-8 °C; luego congelar a -20 °C", obs: "OBLIGATORIO: consignar fecha de toma, FUM y semanas de embarazo exactas." },
+{ nombre: "PAPP-A / Proteína Plasmática Asociada al Embarazo", area: "Endocrinología", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa (semanas 10 a 13+6)", urgencia: "Baja", ayuno: "No especifica", centrifugar: "Sí", separar: "Sí", procesamiento: "Conservar hasta 24 hs a 2-8 °C; luego congelar a -20 °C", obs: "OBLIGATORIO: consignar fecha de toma, FUM y semanas de embarazo exactas." },
   // =========================================================================
 // SECTOR PESQUISA NEONATAL
 // =========================================================================
@@ -236,277 +236,68 @@ nombre: "Tiempo de Protrombina (TP / TPCS2)", area: "Hemostasia", muestra: "Plas
 { nombre: "Antígeno de Cryptococcus (agcrypto)", area: "Microbiología", muestra: "Suero o LCR", tubo: "Rojo/Amarillo o Tubo Estéril", toma: "Punción venosa / Punción lumbar", urgencia: "Alta", ayuno: "8 hs (para suero)", centrifugar: "Sí (Suero)", separar: "Sí (Suero)", procesamiento: "Especial", obs: "CRÍTICO: Orientado a pacientes con VIH o inmunodeprimidos. Solo se recibe con la firma y autorización obligatoria del servicio de INFECTOLOGÍA." },
 { nombre: "Sensibilidad a Antifúngicos en Levaduras (ATF)", area: "Microbiología", muestra: "Cepas de levaduras aisladas (Candida spp.)", tubo: "Tubo con medio de cultivo de aislamiento", toma: "Derivación interna de colonia positiva", urgencia: "Baja", ayuno: "No aplica", centrifugar: "No", separar: "No", procesamiento: "Especial", obs: "Estudio de resistencia auxanográfica o automatizada sobre aislamientos microbiológicos previos." } // 
 ]; // 
-  
-// =========================================================================
 
-// Glosario extendido para las consultas del Diccionario Médico Dinámico (ícono info)
-const glosarioPerfiles = {
-  "Hemograma Completo": "Estudio cuantitativo y cualitativo que evalúa las tres líneas celulares principales de la sangre: eritrocitaria (glóbulos rojos), leucocitaria (glóbulos blancos) y trombocitaria (plaquetas). Es crucial para diagnosticar anemias, procesos infecciosos y trastornos mielo/linfoproliferativos.",
-  "Eritrosedimentación (VSG)": "Prueba que mide la velocidad con la que los hematíes se asientan en el plasma en un período de tiempo determinado (mm/h). Es un marcador inespecífico de fase aguda, indicador de procesos inflamatorios, infecciosos o neoplásicos activos.",
-  "Glucemia": "Dosaje de la concentración de glucosa libre en plasma. Parámetro fundamental e indispensable para el diagnóstico, tamizaje y seguimiento clínico de la Diabetes Mellitus y otros trastornos del metabolismo de los carbohidratos.",
-  "Uremia": "Medición cuantitativa de la urea en sangre, principal residuo nitrogenado derivado del catabolismo de las proteínas. Utilizado como indicador de aclaramiento rápido de la función excretora renal y del equilibrio hidroelectrolítico.",
-  "Creatinemia": "Evaluación sérica del desecho metabólico de la creatina muscular. Debido a su tasa de filtración constante y escasa dependencia de factores externos, representa el indicador bioquímico estándar más confiable para estimar la tasa de filtrado glomerular.",
-  "Hepatograma Completo": "Conjunto integrado de determinaciones bioquímicas enzimáticas y pigmentarias que incluye: Bilirrubina Total, Directa e Indirecta, Transaminasas (TGO/AST y TGP/ALT) y Fosfatasa Alcalina (FAL). Permite evaluar de forma masiva la integridad celular hepática y permeabilidad de la vía biliar.",
-  "Perfil Lipídico": "Evaluación del perfil graso circulante que comprende el Colesterol Total, Colesterol HDL (alta densidad), Colesterol LDL (baja densidad) y Triglicéridos. Esencial para la estratificación del riesgo cardiometabólico y dislipemias.",
-  "Orina Completa": "Análisis integral que consta de tres fases: examen físico (aspecto, color, densidad), examen químico macroscópico (pH, proteínas, glucosa, cuerpos cetónicos, hemoglobina) y el análisis microscópico del sedimento centrifugado para identificar células, cilindros, cristales y bacterias.",
-  "Proteinograma Electroforético": "Técnica cuali-cuantitativa que separa las fracciones de proteínas plasmáticas (Albúmina, Alfa-1, Alfa-2, Beta y Gamma globulinas) mediante migración en un campo eléctrico. Clave en el diagnóstico de gammapatías monoclonales (Mieloma Múltiple) e inflamaciones crónicas.",
-  "Ionograma Plasmático (Na, K, Cl)": "Medición de los principales electrolitos (Sodio, Potasio y Cloro) disueltos en el plasma sanguíneo. Vital para vigilar la homeostasis osmótica celular, la transmisión del impulso nervioso, la función muscular y el ritmo de conducción cardíaca.",
-  "Tiempo de Protrombina (TP / RIN)": "Prueba funcional que evalúa de forma extrínseca la cascada de la coagulación plasmática. Se expresa en porcentaje de actividad y en RIN (Razón Internacional Normatizada) para estandarizar el monitoreo de pacientes anticoagulados oralmente. Fundamental en prequirúrgicos.",
-  "KPTT": "Tiempo de Tromboplastina Parcial Activada. Evalúa de manera global los factores involucrados en la vía intrínseca y común de la coagulación de la sangre. Utilizado en el screening preoperatorio y el control de terapias con heparina no fraccionada.",
-  "Grupo y Factor Rh": "Determinación aglutinante inmunológica de los antígenos eritrocitarios de los sistemas ABO y Rh (Antígeno D) en la membrana de los glóbulos rojos. Crucial para la seguridad transfusional y la prevención de la enfermedad hemolítica fetomaterna.",
-  "VDRL": "Prueba serológica no treponémica de floculación utilizada para el cribado masivo y seguimiento terapéutico de la infección por Sífilis (Treponema pallidum). Obligatoria en el control prenatal.",
-  "Toxoplasmosis (IgG e IgM)": "Determinación de anticuerpos séricos específicos dirigidos contra el parásito Toxoplasma gondii. Permite diferenciar entre una infección pasada (inmunidad) o una infección aguda activa con riesgo de transmisión congénita.",
-  "Chagas (Serología)": "Tamizaje serológico inmunológico para detectar anticuerpos circulantes contra el Trypanosoma cruzi. Es de notificación y control obligatorio en mujeres gestantes de zonas endémicas.",
-  "HIV (Anticuerpos/Antígeno)": "Prueba de tamizaje de cuarta generación que detecta simultáneamente anticuerpos contra el Virus de la Inmunodeficiencia Humana (HIV-1 y HIV-2) y el antígeno de cápside p24, reduciendo drásticamente el período de ventana diagnóstica.",
-  "HBsAg (Hepatitis B)": "Detección del Antígeno de Superficie del virus de la Hepatitis B. Es el marcador serológico de elección en primera instancia para determinar una infección activa (tanto aguda como crónica) por este virus.",
-  "Clearence de Creatinina (Orina 24 hs)": "Prueba depurativa dinámica comparativa entre la creatinina sérica y la eliminada en una recolección exacta de orina de 24 horas. Proporciona una medición precisa del aclaramiento renal real.",
-  "Troponina T o I (Alta Sensibilidad)": "Biomarcador proteico cardíaco de liberación ultra-específica. Su detección cuantitativa elevada en plasma indica de forma directa lesión o necrosis celular del miocardio (Infarto Agudo de Miocardio).",
-  "Ferremia (Hierro Sérico)": "Medición del hierro elemental que se encuentra circulando en el plasma, firmemente acoplado a su proteína transportadora específica (transferrina).",
-  "Ferritina Sérica": "Determinación macromolecular que cuantifica el nivel de la principal proteína de almacenamiento intracelular de hierro. Se considera el reflejo más exacto y fiel de las reservas de hierro totales del organismo.",
-  "Proteína C Reactiva (PCR) Cuantitativa": "Reactante de fase aguda sintetizado por el hígado en respuesta a estímulos inflamatorios. Su aumento es drástico y veloz frente a injuria tisular, infecciones bacterianas o brotes de patologías autoinmunes.",
-  "Factor Reumatoideo (Látex AR)": "Autoanticuerpo (habitualmente IgM) dirigido contra la fracción Fc de las inmunoglobulinas IgG propias del organismo. Marcador clásico de screening inmunológico para el diagnóstico de Artritis Reumatoidea.",
-  "Anticuerpos Anti-Transglutaminasa Tisular IgA": "Marcador serológico inmunológico de clase IgA dirigido contra la enzima transglutaminasa. Posee el mayor valor predictivo y especificidad para el diagnóstico no invasivo de la Enfermedad Celíaca.",
-  "IgA Sérica Total": "Cuantificación de la inmunoglobulina A basal en suero. Se solicita de rutina junto al panel celíaco para descartar una deficiencia selectiva de IgA, anomalía genética que genera falsos negativos en las pruebas serológicas específicas.",
-  "TSH (Hormona Estimulante de Tiroides)": "Hormona hipofisaria que regula la producción de hormonas tiroideas. Es el indicador más sensible para detectar disfunciones sutiles de la glándula tiroides.",
-  "T4 Libre (Tiroxina Libre)": "Fracción activa de la principal hormona tiroidea, no unida a proteínas. Muestra la disponibilidad real de hormona a nivel celular.",
-  "Procalcitonina (PCT)": "Biomarcador proteico que se eleva drásticamente ante infecciones bacterianas sistémicas severas. Útil para diferenciar inflamación bacteriana de viral y monitorear la sepsis.",
-  "Albúmina Sérica": "La proteína más abundante del plasma, sintetizada por el hígado. Su medición es clave para evaluar el estado nutricional crónico y la presión oncótica vascular.",
-  "Calcemia Total e Iónica": "El calcio total mide el ion unido a proteínas y libre; el calcio iónico mide únicamente la fracción libre y biológicamente activa, crítica en emergencias metabólicas.",
-  "Hemoglobina Glicosilada (HbA1c)": "Fracción de la hemoglobina unida a la glucosa de forma irreversible por glicación. Determina de manera retrospectiva el promedio de control glucémico real del paciente durante los últimos 90 días (vida media del eritrocito)."
-};
+// La cartera contenía registros repetidos. Se conserva la primera ficha de cada
+// determinación para evitar resultados duplicados en la búsqueda.
+const determinacionesUnicas = Array.from(
+    new Map(determinaciones.map(d => [d.nombre, d])).values()
+).filter(d => d.nombre !== "Anticoagulante Lúpico");
 
-// Matriz estructural de perfiles basados en el nomenclador IDAC con sus desgloses formativos
-const listaPerfiles = [
-  { 
-    nombre: "Perfil General de Salud (Básico)", 
-    analisis: [
-      { estudio: "Hemograma Completo", detalle: "Evalúa glóbulos rojos, blancos y plaquetas." },
-      { estudio: "Eritrosedimentación (VSG)", detalle: "Marcador inespecífico de inflamación o infección activa." },
-      { estudio: "Glucemia", detalle: "Medición de glucosa basal en plasma para screening de diabetes." },
-      { estudio: "Uremia", detalle: "Evalúa el residuo del metabolismo proteico y función renal rápida." },
-      { estudio: "Creatinemia", detalle: "Indicador sérico más confiable del filtrado glomerular renal." },
-      { estudio: "Hepatograma Completo", detalle: "Evalúa enzimas hepáticas y bilirrubinas para ver la integridad del hígado." },
-      { estudio: "Perfil Lipídico", detalle: "Incluye Colesterol Total, HDL, LDL y Triglicéridos (Riesgo cardíaco)." },
-      { estudio: "Orina Completa", detalle: "Análisis físico-químico y del sedimento urinario microscópico." }
-    ], 
-    obs: "Rutina anual estándar para la valoración del estado metabólico, renal y hepático basal." 
-  },
-  { 
-    nombre: "Perfil Prequirúrgico", 
-    analisis: [
-      { estudio: "Hemograma Completo", detalle: "Control de recuento celular y descarte de anemias previas a quirófano." },
-      { estudio: "Glucemia", detalle: "Monitoreo metabólico para prever complicaciones de cicatrización." },
-      { estudio: "Uremia", detalle: "Evaluación renal rápida previa a la administración de anestésicos." },
-      { estudio: "Grupo y Factor Rh", detalle: "Determinación inmunológica crítica ante la necesidad de transfusión." },
-      { estudio: "Tiempo de Protrombina (TP / RIN)", detalle: "Evalúa la vía extrínseca de la coagulación. Vital para prevenir sangrados." },
-      { estudio: "KPTT", detalle: "Tiempo de Tromboplastina Parcial Activada (Vía intrínseca de la coagulación)." },
-      { estudio: "Orina Completa", detalle: "Descarte de infecciones urinarias subclínicas previas a la cirugía." }
-    ], 
-    obs: "Estudio crítico preoperatorio para evaluar la hemostasia y descartar riesgos hemodinámicos." 
-  },
-  { 
-    nombre: "Perfil Inicial Embarazo", 
-    analisis: [
-      { estudio: "Hemograma Completo", detalle: "Control estricto de la anemia fisiológica del embarazo." },
-      { estudio: "Glucemia", detalle: "Screening inicial para la detección temprana de diabetes gestacional." },
-      { estudio: "Grupo y Factor Rh", detalle: "Crucial para detectar incompatibilidad feto-materna (Coombs indirecta)." },
-      { estudio: "VDRL", detalle: "Prueba serológica obligatoria para el descarte de Sífilis." },
-      { estudio: "Toxoplasmosis (IgG e IgM)", detalle: "Monitoreo de anticuerpos contra el parásito Toxoplasma gondii." },
-      { estudio: "Chagas (Serología)", detalle: "Tamizaje obligatorio por ley para vigilar la transmisión vertical." },
-      { estudio: "HIV (Anticuerpos/Antígeno)", detalle: "Screening obligatorio para activar protocolo de prevención de transmisión vertical." },
-      { estudio: "HBsAg (Hepatitis B)", detalle: "Detección del antígeno de superficie del virus de la Hepatitis B." },
-      { estudio: "Orina Completa", detalle: "Screening de bacteriuria asintomática (causa común de parto prematuro)." }
-    ], 
-    obs: "Screening preventivo obligatorio del primer trimestre para el control materno-fetal." 
-  },
-  { 
-    nombre: "Perfil Hepático", 
-    analisis: [
-      { estudio: "Hepatograma Completo", detalle: "Incluye Bilirrubinas (T/D/I), Transaminasas (TGO/TGP) y FAL (Fosfatasa Alcalina)." },
-      { estudio: "Proteinograma Electroforético", detalle: "Mide Albúmina y Globulinas. Clave para ver la capacidad de síntesis del hígado." },
-      { estudio: "Tiempo de Protrombina (TP)", detalle: "Los factores de coagulación se de síntesis hepática; un TP alterado evalúa daño crónico." },
-      { estudio: "HBsAg (Hepatitis B)", detalle: "Tamizaje para descartar infecciones por virus de Hepatitis B como causa de la injuria." }
-    ], 
-    obs: "Diseñado para el estudio de hepatopatías crónicas, capacidad de síntesis macromolecular y serologías virales." 
-  },
-  { 
-    nombre: "Perfil Renal", 
-    analisis: [
-      { estudio: "Uremia", detalle: "Evaluación de la concentración de urea derivada del catabolismo de proteínas." },
-      { estudio: "Creatinemia", detalle: "Metabolito constante de la masa muscular filtrado de forma pura por el riñón." },
-      { estudio: "Ionograma Plasmático (Na, K, Cl)", detalle: "Control de electrolitos esenciales regulados por los túbulos renales." },
-      { estudio: "Clearence de Creatinina (Orina 24 hs)", detalle: "Prueba depurativa cuantitativa exacta para medir la tasa de filtrado glomerular." },
-      { estudio: "Orina Completa", detalle: "Busca proteinuria, hematuria o cilindros que indiquen daño en la nefrona." }
-    ], 
-    obs: "Evaluación integral del filtrado glomerular, capacidad de depuración celular y balance hidroelectrolítico." 
-  },
-  { 
-    nombre: "Perfil Cardíaco (Urgencia)", 
-    analisis: [
-      { estudio: "Troponina T o I (Alta Sensibilidad)", detalle: "Biomarcador de elección. Su elevación indica necrosis celular miocárdica (Infarto)." },
-      { estudio: "Ionograma Plasmático (Na, K, Cl)", detalle: "Control crítico del Potasio y Sodio (Alteraciones causan arritmias letales)." },
-      { estudio: "Hemograma Completo", detalle: "Evaluación urgente de glóbulos rojos (Descarte de shock hipovolémico o anemia severa)." },
-      { estudio: "Glucemia", detalle: "Control metabólico rápido originado por respuestas de estrés celular agudo." }
-    ], 
-    obs: "Algoritmo de exclusión rápida en servicios de guardia ante sospecha de síndrome coronario agudo." 
-  },
-  { 
-    nombre: "Perfil de Anemias", 
-    analisis: [
-      { estudio: "Hemograma Completo", detalle: "Informa Índices Hematimétricos (VCM, HCM, CHCM) para clasificar la anemia." },
-      { estudio: "Eritrosedimentación (VSG)", detalle: "Ayuda a diferenciar anemias por procesos inflamatorios crónicos." },
-      { estudio: "Ferremia (Hierro Sérico)", detalle: "Mide el hierro circulante unido a la transferrina en el plasma." },
-      { estudio: "Ferritina Sérica", detalle: "El parámetro más fiel para conocer los depósitos reales de hierro en el organismo." }
-    ], 
-    obs: "Diagnóstico diferencial clínico de anemias microcíticas, macrocíticas o de procesos crónicos." 
-  },
-  { 
-    nombre: "Perfil Diabético", 
-    analisis: [
-      { estudio: "Glucemia", detalle: "Evaluación del estado de la glucosa libre basal en plasma." },
-      { estudio: "Hemoglobina Glicosilada (HbA1c)", detalle: "Muestra el promedio retrospectivo del control glucémico de los últimos 90 días." },
-      { estudio: "Creatinemia", detalle: "Monitoreo de seguridad para detectar indicios tempranos de nefropatía diabética." },
-      { estudio: "Perfil Lipídico", detalle: "Control de Triglicéridos y LDL, alterados comúnmente por la dislipidemia diabética." },
-      { estudio: "Orina Completa", detalle: "Busca escape de proteínas mínimas indicando daño vascular renal temprano." }
-    ], 
-    obs: "Seguimiento metabólico estricto y prevención de micro/macroangiopatías secundarias." 
-  },
-  { 
-    nombre: "Perfil Reumático", 
-    analisis: [
-      { estudio: "Hemograma Completo", detalle: "Busca anemia de procesos crónicos o leucopenia asociadas a enfermedades autoinmunes." },
-      { estudio: "Eritrosedimentación (VSG)", detalle: "Mide la velocidad de caída eritrocitaria, muy elevada en brotes reumáticos." },
-      { estudio: "Proteína C Reactiva (PCR) Cuantitativa", detalle: "Reactante de fase aguda que marca inflamación tisular con alta velocidad de respuesta." },
-      { estudio: "Factor Reumatoideo (Látex AR)", detalle: "Prueba serológica de screening dirigida contra autoanticuerpos específicos." },
-      { estudio: "Proteinograma Electroforético", detalle: "Evalúa el aumento de las gammaglobulinas (hipergammaglobulinemia policlonal)." }
-    ], 
-    obs: "Screening de laboratorio frente a sospechas de colagenopatías o procesos autoinmunes articulares." 
-  },
-  { 
-    nombre: "Perfil Celíaco", 
-    analisis: [
-      { estudio: "Anticuerpos Anti-Transglutaminasa Tisular IgA", detalle: "Inmunoserología de elección por su altísima sensibilidad y especificidad diagnóstica." },
-      { estudio: "IgA Sérica Total", detalle: "Obligatorio para descartar deficiencia congénita de IgA que dé falsos negativos." },
-      { estudio: "Hemograma Completo", detalle: "Control de anemias por malabsorción intestinal de nutrientes de la dieta." },
-      { estudio: "Ferremia (Hierro Sérico)", detalle: "Evalúa si hay ferropenia instalada por atrofia de las vellosidades del duodeno." }
-    ], 
-    obs: "Panel serológico inicial para la detección y monitoreo de enteropatías sensibles al gluten." 
-  },
-  { 
-    nombre: "Perfil Tiroideo", 
-    analisis: [
-      { estudio: "TSH (Hormona Estimulante de Tiroides)", detalle: "Marcador ultrasensible de primera línea para evaluar el eje tiroideo." },
-      { estudio: "T4 Libre (Tiroxina Libre)", detalle: "Evalúa la fracción biológicamente activa de la hormona circulante." },
-      { estudio: "T3 Total", detalle: "Útil en casos específicos de sospecha de T3-toxicosis." },
-      { estudio: "Anticuerpos Anti-TPO / Anti-TG", detalle: "Dosaje inmunológico para confirmar etiología autoinmune (Hashimoto/Graves)." }
-    ], 
-    obs: "Evaluación integral del eje hipotálamo-hipófiso-tiroideo ante sospechas de hipo o hipertiroidismo." 
-  },
-  { 
-    nombre: "Perfil Hipertensivo / Riesgo Vascular", 
-    analisis: [
-      { estudio: "Ionograma Plasmático", detalle: "Control del Sodio y Potasio (Clave si se usan diuréticos)." },
-      { estudio: "Creatinemia y Uremia", detalle: "Monitoreo del daño blanco renal secundario a la presión arterial elevada." },
-      { estudio: "Ácido Úrico", detalle: "Marcador metabólico y de riesgo cardiovascular independiente." },
-      { estudio: "Microalbuminuria en Orina", detalle: "Detecta daño endotelial renal incipiente en pacientes hipertensos." },
-      { estudio: "Perfil Lipídico", detalle: "Estratificación del riesgo aterogénico general del paciente." }
-    ], 
-    obs: "Monitoreo de órganos blanco y factores metabólicos agravantes en el paciente hipertenso crónico." 
-  },
-  { 
-    nombre: "Perfil Infeccioso Respiratorio / Febril", 
-    analisis: [
-      { estudio: "Hemograma Completo", detalle: "Evalúa leucocitosis, neutrofilia o linfocitosis para orientar origen viral o bacteriano." },
-      { estudio: "Proteína C Reactiva (PCR) Cuantitativa", detalle: "Reactante de fase aguda para medir la intensidad de la respuesta inflamatoria." },
-      { estudio: "Procalcitonina (PCT)", detalle: "Biomarcador ultra-específico de sepsis y severidad de infecciones bacterianas." },
-      { estudio: "Hemocultivos (Por par)", detalle: "Cultivo microbiológico para aislamiento de patógenos en sangre (Bacteriemia)." }
-    ], 
-    obs: "Panel de screening rápido para guiar la conducta terapéutica antibiótica en cuadros febriles agudos." 
-  },
-  { 
-    nombre: "Perfil Nutricional / Adulto Mayor", 
-    analisis: [
-      { estudio: "Hemograma Completo", detalle: "Screening de anemias carenciales (ferropénica o megaloblástica)." },
-      { estudio: "Albúmina Sérica", detalle: "Proteína marcadora del estado de nutrición y reserva proteica a mediano plazo." },
-      { estudio: "Vitamina B12 y Ácido Fólico", detalle: "Esenciales para la maduración celular y función neurológica." },
-      { estudio: "Ferremia y Ferritina", detalle: "Evaluación de los depósitos corporales de hierro molecular." },
-      { estudio: "Colesterol Total", detalle: "Valores críticamente bajos en adultos mayores pueden indicar desnutrición severa." }
-    ], 
-    obs: "Valoración del estado carencial, metabólico y de síntesis proteica en pacientes con sospecha de malnutrición." 
-  },
-  { 
-    nombre: "Perfil Óseo / Fosfocálcico", 
-    analisis: [
-      { estudio: "Calcemia Total e Iónica", detalle: "Medición del calcio en sangre, crítico para la función neuromuscular y ósea." },
-      { estudio: "Fosfatemia", detalle: "Evaluación del fósforo sérico, estrechamente regulado junto al calcio." },
-      { estudio: "Fosfatasa Alcalina Total (FAL)", detalle: "Fracción enzimática aumentada en procesos de alta remodelación ósea." },
-      { estudio: "Vitamina D (25-OH D)", detalle: "Hormona clave para la absorción intestinal de calcio y la salud mineral ósea." }
-    ], 
-    obs: "Estudio del metabolismo mineral para el diagnóstico de osteoporosis, osteomalacia o hiperparatiroidismo." 
-  }
-];
+// Inyectar el contenedor del pedido dinámicamente si no existe (Con diseño mejorado)
+if (!document.getElementById('pedido-status')) {
+    const pedidoHTML = `
+        <div id="pedido-status" class="pedido-container">
+            <span><i class="fas fa-clipboard-list"></i> Pedido: <strong id="contador-pedido">0</strong></span>
+            <div>
+                <button onclick="enviarWhatsApp()" class="btn-ws">
+                    <i class="fab fa-whatsapp"></i> Enviar Indicaciones
+                </button>
+                <button onclick="vaciarPedido()" class="btn-clear">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        </div>`;
+    document.querySelector('.search-section').insertAdjacentHTML('beforebegin', pedidoHTML);
+}
 
-// 1. INICIALIZADOR DE EVENTOS DE INTERFAZ
-document.addEventListener("DOMContentLoaded", () => {
-    // Escondemos el bloque visual contenedor de perfiles al arrancar la app
-    const perfilesSec = document.querySelector('.perfiles-section');
-    if (perfilesSec) perfilesSec.style.display = 'none';
-
-    // Construimos la estructura oculta en memoria del DOM
-    construirTarjetasPerfiles();
-
-    // Comportamiento inteligente cruzado del selector de SECTORES TRADICIONALES
-    document.getElementById("areaSelect").addEventListener("change", () => {
-        if(document.getElementById("areaSelect").value !== "") {
-            document.getElementById("perfilSelect").value = ""; // Limpia perfiles
-        }
-        render();
-    });
-
-    // Comportamiento inteligente cruzado del selector de PERFILES COMPUESTOS
-    document.getElementById("perfilSelect").addEventListener("change", () => {
-        if(document.getElementById("perfilSelect").value !== "") {
-            document.getElementById("areaSelect").value = "";   // Limpia sectores
-            document.getElementById("searchInput").value = "";  // Limpia barra texto
-        }
-        render();
-    });
-
-    render();
-});
-
-// 2. FUNCIÓN DE RENDERIZADO CENTRALIZADA 
+// 1. RENDERIZADO DE LA LISTA DE EXÁMENES (Estilo Tarjeta)
 function render() {
     const list = document.getElementById("examList");
-    const perfilesSec = document.querySelector('.perfiles-section');
     const search = document.getElementById("searchInput").value.toLowerCase();
     const areaFilter = document.getElementById("areaSelect").value;
-    const perfilFilter = document.getElementById("perfilSelect").value;
-    
-    // Limpieza total preventiva de bloques dinámicos
+    const learningHub = document.getElementById("learningHub");
+    const resultsSummary = document.getElementById("resultsSummary");
     list.innerHTML = "";
-    if (perfilesSec) perfilesSec.style.display = 'none';
 
-    // RUTA A: Si el alumno eligió un Perfil del menú desplegable secundario
-    if (perfilFilter !== "") {
-        if (perfilesSec) perfilesSec.style.display = 'block';
-        mostrarSoloPerfilSeleccionado(perfilFilter);
-        return; 
-    }
+    const isBrowsing = search.trim() !== "" || areaFilter !== "";
+    learningHub.hidden = isBrowsing;
+    resultsSummary.textContent = "";
 
-    // Si la pantalla de inicio no tiene entradas de filtros ni texto, se congela vacía
-    if (search.trim() === "" && areaFilter === "") return;
+    if (!isBrowsing) return;
 
-    // RUTA B: Procesamiento regular y filtrado de determinaciones individuales
-    const filtered = determinaciones.filter(d => {
-        const matchText = d.nombre.toLowerCase().includes(search);
+    // Filtrado de determinaciones
+    const filtered = determinacionesUnicas.filter(d => {
+        const searchableText = [d.nombre, d.area, d.muestra, d.tubo, d.toma]
+            .filter(Boolean)
+            .join(" ")
+            .toLowerCase();
+        const matchText = searchableText.includes(search);
         const matchArea = areaFilter === "" || d.area === areaFilter;
         return matchText && matchArea;
     });
 
+    if (filtered.length === 0) {
+        resultsSummary.textContent = "No encontramos estudios con esos criterios. Probá con otro nombre, tubo o sector.";
+        return;
+    }
+
+    resultsSummary.textContent = `${filtered.length} ${filtered.length === 1 ? "estudio encontrado" : "estudios encontrados"}`;
+
     filtered.forEach(d => {
         const li = document.createElement("li");
-        let claseTubo = "color-rojo";
+        
+        // Asignación automática de clases para los colores de tubos en base al texto
+        let claseTubo = "color-rojo"; // Por defecto
         const tuboTexto = (d.tubo || "").toLowerCase();
         
         if (tuboTexto.includes("lila") || tuboTexto.includes("edta")) claseTubo = "color-lila";
@@ -515,9 +306,11 @@ function render() {
         else if (tuboTexto.includes("verde") || tuboTexto.includes("heparina")) claseTubo = "color-verde";
         else if (tuboTexto.includes("frasco") || tuboTexto.includes("estéril") || tuboTexto.includes("materia")) claseTubo = "color-esteril";
 
+        // Semaforización de Urgencias usando tus clases CSS
         const nivelUrgencia = d.urgencia ? d.urgencia.toLowerCase() : "baja";
         const claseUrgencia = `urgencia-${nivelUrgencia}`;
 
+        // Construcción de la tarjeta de la lista alineada al nuevo CSS
         li.innerHTML = `
             <div class="wrapper-izquierdo">
                 <span class="tubo-color ${claseTubo}"></span>
@@ -535,58 +328,7 @@ function render() {
     });
 }
 
-// 3. GENERADOR DINÁMICO DE TARJETAS DE PERFILES CON DESGLOSE FORMATIVO
-function construirTarjetasPerfiles() {
-    const perfilesGrid = document.getElementById('perfiles-grid');
-    if (!perfilesGrid) return;
-    perfilesGrid.innerHTML = "";
-
-    listaPerfiles.forEach((p) => {
-        const card = document.createElement('div');
-        card.className = 'perfil-card';
-        card.setAttribute('data-nombre-perfil', p.nombre);
-        
-        // Mapeamos los sub-análisis construyendo la sub-estructura con sus definiciones directas
-        const itemsHTML = p.analisis.map(item => {
-            return `
-                <li class="perfil-li" style="display: flex; flex-direction: column; align-items: flex-start; padding: 10px; border-bottom: 1px solid #f1f5f9;">
-                    <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
-                        <span style="font-weight: 600; color: #1e293b; font-size: 0.92rem;">${item.estudio}</span>
-                        <button class="info-btn-perfil" data-item="${item.estudio}" title="Ver definición del glosario" style="background: none; border: none; color: #0284c7; cursor: pointer; padding: 2px 6px;">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                    <small style="color: #64748b; font-size: 0.8rem; margin-top: 3px; font-weight: 400; line-height: 1.3;">
-                        <i class="fas fa-angle-right" style="color: #cbd5e1; margin-right: 4px;"></i> ${item.detalle}
-                    </small>
-                </li>`;
-        }).join('');
-
-        card.innerHTML = `
-            <div>
-                <h3 style="background-color: #f8fafc; padding: 12px; margin: 0; font-size: 1.05rem; font-weight: 700; color: #0f172a; border-bottom: 2px solid #e2e8f0; border-top-left-radius: 14px; border-top-right-radius: 14px;"><i class="fas fa-layer-group" style="color: #0284c7; margin-right: 8px;"></i>${p.nombre}</h3>
-                <ul class="perfil-ul" style="list-style: none; padding: 0; margin: 0;">${itemsHTML}</ul>
-            </div>
-            <div class="perfil-obs" style="padding: 12px; background-color: #f0fdf4; border-top: 1px solid #dcfce7; font-size: 0.82rem; color: #166534; border-bottom-left-radius: 14px; border-bottom-right-radius: 14px;"><strong>Utilidad Clínica:</strong> ${p.obs}</div>
-        `;
-        perfilesGrid.appendChild(card);
-    });
-}
-
-// 4. AISLADOR DE SELECCIÓN DE PERFIL
-function mostrarSoloPerfilSeleccionado(nombrePerfilElegido) {
-    const cards = document.querySelectorAll('.perfil-card');
-    cards.forEach(card => {
-        const nombreCard = card.getAttribute('data-nombre-perfil');
-        if (nombreCard === nombrePerfilElegido) {
-            card.style.display = 'flex';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
-
-// 5. DETALLE DE MODAL CON SISTEMA DE PESTAÑAS (Para determinaciones individuales)
+// 2. DETALLE DEL MODAL PREMIUM CON SISTEMA DE PESTAÑAS INTERACTIVAS
 function mostrarDetalle(d) {
     const modal = document.getElementById("modal");
     const modalData = document.getElementById("modalData");
@@ -594,6 +336,7 @@ function mostrarDetalle(d) {
     const centrifugado = d.centrifugar ? d.centrifugar : "No requiere / No especifica";
     const separacion = d.separar ? d.separar : "No requiere / No especifica";
 
+    // Detectar color de tubo para la cabecera
     let claseTuboModal = "color-rojo";
     const tTexto = (d.tubo || "").toLowerCase();
     if (tTexto.includes("lila") || tTexto.includes("edta")) claseTuboModal = "color-lila";
@@ -603,7 +346,7 @@ function mostrarDetalle(d) {
     else if (tTexto.includes("frasco") || tTexto.includes("estéril") || tTexto.includes("materia")) claseTuboModal = "color-esteril";
 
     modalData.innerHTML = `
-        <div class="modal-header-analisis">
+        <div class="modal-header-analisis" style="margin-bottom: 12px;">
             <h2 class="modal-title">${d.nombre}</h2>
             <div style="display: flex; gap: 12px; align-items: center; margin-top: 6px; flex-wrap: wrap;">
                 <span class="modal-sector">${d.area}</span>
@@ -624,8 +367,8 @@ function mostrarDetalle(d) {
         </div>
 
         <div id="tab-paciente-content" class="tab-content active">
-            <div class="seccion-modal-paciente">
-                <h3 class="modal-subtitulo paciente"><i class="fas fa-user-check"></i> Preparación y Ayuno</h3>
+            <div class="seccion-modal-paciente" style="margin-bottom: 16px;">
+                <h3 class="modal-subtitulo paciente" style="margin-bottom: 8px;"><i class="fas fa-user-check"></i> Preparación y Ayuno</h3>
                 <p class="modal-texto">
                     <strong>Ayuno requerido:</strong> ${d.ayuno || "No requiere ayuno."}<br><br>
                     ${d.prepPaciente || `${d.toma} ${d.ayuno || ''}`}
@@ -634,14 +377,15 @@ function mostrarDetalle(d) {
         </div>
 
         <div id="tab-tecnico-content" class="tab-content">
-            <div class="seccion-modal-tecnico">
-                <h3 class="modal-subtitulo tecnico"><i class="fas fa-vial"></i> Control de Procesamiento</h3>
+            <div class="seccion-modal-tecnico" style="margin-bottom: 16px;">
+                <h3 class="modal-subtitulo tecnico" style="margin-bottom: 8px;"><i class="fas fa-vial"></i> Control de Procesamiento</h3>
                 <p class="modal-texto">
                     <strong>Muestra biológica:</strong> ${d.muestra}<br>
                     <strong>Centrifugar:</strong> ${centrifugado}<br>
                     <strong>Separar suero/plasma:</strong> ${separacion}<br>
                     <strong>Estabilidad / Conservación:</strong> ${d.procesamiento || "No especifica."}
                 </p>
+                
                 ${d.obsTecnicas || d.obs ? `
                     <div class="alerta-tecnica" style="margin-top: 12px; background-color: #fffbeb; border: 1px solid #fef3c7; color: #92400e; font-size: 0.8rem; padding: 10px; border-radius: 8px;">
                         <i class="fas fa-exclamation-triangle"></i> <strong>Manejo de Mesada:</strong> ${d.obsTecnicas || d.obs}
@@ -650,33 +394,40 @@ function mostrarDetalle(d) {
             </div>
         </div>
 
-        <button onclick='agregarAlPedido(${JSON.stringify(d).replace(/"/g, '&quot;')})' class="btn-whatsapp-premium" style="background-color: var(--primary);">
+        <button onclick='agregarAlPedido(${JSON.stringify(d).replace(/"/g, '&quot;')})' class="btn-whatsapp-premium" style="background-color: var(--primary); box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);">
             <i class="fas fa-plus"></i> Añadir a la Orden de WhatsApp
         </button>
     `;
+    
     modal.style.display = "flex";
 }
 
+// FUNCIÓN AUXILIAR INTERACTIVA PARA INTERCAMBIAR LAS PESTAÑAS
 function cambiarPestaña(tipo) {
     const btnPaciente = document.querySelector('.tab-btn.tab-paciente');
     const btnTecnico = document.querySelector('.tab-btn.tab-tecnico');
     const contentPaciente = document.getElementById('tab-paciente-content');
     const contentTecnico = document.getElementById('tab-tecnico-content');
 
-    if (!btnPaciente || !btnTecnico || !contentPaciente || !contentTecnico) return;
-
     if (tipo === 'paciente') {
-        btnPaciente.classList.add('active'); contentPaciente.classList.add('active');
-        btnTecnico.classList.remove('active'); contentTecnico.classList.remove('active');
+        btnPaciente.classList.add('active');
+        contentPaciente.classList.add('active');
+        btnTecnico.classList.remove('active');
+        contentTecnico.classList.remove('active');
     } else {
-        btnTecnico.classList.add('active'); contentTecnico.classList.add('active');
-        btnPaciente.classList.remove('active'); contentPaciente.classList.remove('active');
+        btnTecnico.classList.add('active');
+        contentTecnico.classList.add('active');
+        btnPaciente.classList.remove('active');
+        contentPaciente.classList.remove('active');
     }
 }
 
-// 6. MANEJO INTERNO DE ÓRDENES DE EXPORTACIÓN Y CANALES
+// 3. LOGICA DEL COMPORTAMIENTO DEL PEDIDO, WHATSAPP Y TXT
 function agregarAlPedido(estudio) {
-    if (!pedidoActual.some(e => e.nombre === estudio.nombre)) { pedidoActual.push(estudio); actualizarInterfaz(); }
+    if (!pedidoActual.some(e => e.nombre === estudio.nombre)) {
+        pedidoActual.push(estudio);
+        actualizarInterfaz();
+    }
     cerrarModal();
 }
 
@@ -686,57 +437,101 @@ function actualizarInterfaz() {
     status.style.display = pedidoActual.length > 0 ? "flex" : "none";
 }
 
-function vaciarPedido() { pedidoActual = []; actualizarInterfaz(); }
+function vaciarPedido() { 
+    pedidoActual = []; 
+    actualizarInterfaz(); 
+}
 
 function enviarWhatsApp() {
     if (pedidoActual.length === 0) return;
-    let mensaje = "*GUÍALAB - INDICACIONES PARA TUS ESTUDIOS* 🔬\n========================================\n\n";
-    pedidoActual.forEach(est => { mensaje += `📌 *${est.nombre.toUpperCase()}*\n• *Preparación:* ${est.prepPaciente || est.toma}\n----------------------------------------\n`; });
-    window.open(`https://wa.me/?text=${encodeURIComponent(mensaje)}`, '_blank');
+
+    let mensaje = "*GUÍALAB - INDICACIONES PARA TUS ESTUDIOS* 🔬\n";
+    mensaje += "========================================\n\n";
+    mensaje += "Hola, para garantizar la validez de los resultados de tus análisis clínicos, por favor seguí minuciosamente estas instrucciones previas:\n\n";
+
+    pedidoActual.forEach((est, index) => {
+        mensaje += `📌 *${est.nombre.toUpperCase()}*\n`;
+        
+        if (est.prepPaciente) {
+            mensaje += `• *Preparación:* ${est.prepPaciente}\n`;
+            if (est.ayuno && est.ayuno.toLowerCase() !== "no requiere") {
+                mensaje += `• *Ayuno:* ${est.ayuno}\n`;
+            }
+        } else {
+            mensaje += `• *Preparación:* ${est.toma} ${est.ayuno || ''}\n`;
+            if (est.obs) mensaje += `• *Nota Importante:* ${est.obs}\n`;
+        }
+        
+        mensaje += "----------------------------------------\n";
+    });
+
+    mensaje += "\n📍 *Posadas, Misiones*\n";
+    mensaje += "_Recordá presentarte en el horario de extracción asignado con tu DNI y la Orden Médica correspondiente._";
+
+    const textoCodificado = encodeURIComponent(mensaje);
+    window.open(`https://wa.me/?text=${textoCodificado}`, '_blank');
 }
 
+// NUEVA FUNCIÓN: Generación Dinámica y Descarga de Archivo TXT
 function descargarTXT() {
     if (pedidoActual.length === 0) return;
-    let texto = "GUÍALAB - INDICACIONES PRE-ANALÍTICAS\n\n";
-    pedidoActual.forEach((est, i) => { texto += `[${i+1}] ${est.nombre}\n- Preparación: ${est.prepPaciente || est.toma}\n\n`; });
+
+    let texto = "========================================\n";
+    texto += "   GUÍALAB - INDICACIONES DE LABORATORIO\n";
+    texto += "========================================\n\n";
+    texto += "Hola, para garantizar la validez de los resultados de tus análisis clínicos, por favor seguí minuciosamente estas instrucciones previas:\n\n";
+
+    pedidoActual.forEach((est, index) => {
+        texto += `📌 [${index + 1}] ${est.nombre.toUpperCase()}\n`;
+        
+        if (est.prepPaciente) {
+            texto += `   • Preparación: ${est.prepPaciente}\n`;
+            if (est.ayuno && est.ayuno.toLowerCase() !== "no requiere") {
+                texto += `   • Ayuno: ${est.ayuno}\n`;
+            }
+        } else {
+            texto += `   • Preparación: ${est.toma} ${est.ayuno || ''}\n`;
+            if (est.obs) texto += `   • Nota Importante: ${est.obs}\n`;
+        }
+        
+        texto += "----------------------------------------\n";
+    });
+
+    texto += "\n📍 Posadas, Misiones\n";
+    texto += "Recordá presentarte en el horario de extracción asignado con tu DNI y la Orden Médica correspondiente.";
+
+    // Conversión de datos planos a objeto Blob descargable
     const blob = new Blob([texto], { type: "text/plain;charset=utf-8" });
+    
+    // Disparador invisible de descarga en el navegador
     const enlace = document.createElement("a");
     enlace.href = URL.createObjectURL(blob);
     enlace.download = `indicaciones-laboratorio.txt`;
+    
+    document.body.appendChild(enlace);
     enlace.click();
+    document.body.removeChild(enlace);
 }
 
-function cerrarModal() { document.getElementById("modal").style.display = "none"; }
+// 4. CONTROLADORES DE CIERRE DEL MODAL
+function cerrarModal() { 
+    document.getElementById("modal").style.display = "none"; 
+}
+
 document.getElementById("closeModal").onclick = cerrarModal;
-window.onclick = (e) => { if (e.target == document.getElementById("modal")) cerrarModal(); };
+window.onclick = (e) => { 
+    if (e.target == document.getElementById("modal")) cerrarModal(); 
+};
 
-// 7. ESCUCHADOR DINÁMICO PARA EL DICCIONARIO MÉDICO (Botón de Info en perfiles)
-document.addEventListener('click', (e) => {
-    const boton = e.target.closest('.info-btn-perfil');
-    if (boton) {
-        const analisisNombre = boton.getAttribute('data-item');
-        const descripcionClinica = glosarioPerfiles[analisisNombre] || "Información complementaria en fase de revisión.";
-        const appModal = document.getElementById('modal');
-        const appModalData = document.getElementById('modalData');
-        
-        if (appModal && appModalData) {
-            appModalData.innerHTML = `
-                <div class="modal-header-analisis" style="border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 14px;">
-                    <h2 class="modal-title" style="color: #0284c7; font-size: 1.3rem;"><i class="fas fa-microscope"></i> Diccionario Médico</h2>
-                </div>
-                <div style="background-color: #f0fdf4; border: 1px solid #dcfce7; border-radius: 14px; padding: 16px;">
-                    <h3 class="modal-subtitulo paciente" style="color: #166534; font-size: 1rem; margin-bottom: 6px;">${analisisNombre}</h3>
-                    <p class="modal-texto" style="color: #334155; font-size: 0.92rem; line-height: 1.5;">${descripcionClinica}</p>
-                </div>`;
-            appModal.style.display = "flex";
-        }
-    }
-});
+// Event Listeners vinculados
+document.getElementById("searchInput").addEventListener("input", render);
+document.getElementById("areaSelect").addEventListener("change", render);
 
-// Limpieza automática por si el usuario decide volver a escribir en la barra de búsqueda
-document.getElementById("searchInput").addEventListener("input", () => {
-    if(document.getElementById("searchInput").value !== "") {
-        document.getElementById("perfilSelect").value = ""; 
-    }
-    render();
+document.querySelectorAll("[data-sector]").forEach(button => {
+    button.addEventListener("click", () => {
+        document.getElementById("areaSelect").value = button.dataset.sector;
+        document.getElementById("searchInput").value = "";
+        render();
+        document.getElementById("examList").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
 });
