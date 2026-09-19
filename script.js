@@ -3,7 +3,7 @@ const determinaciones = [
   // SECTOR HEMATOLOGÍA
  { nombre: "Eritrosedimentación", area: "Hematología", muestra: "Sangre entera con EDTA", tubo: "Lila (EDTA)", toma: "Punción venosa", urgencia: "Media", ayuno: "8 hs", procesamiento: "Dentro de las 4 hs", obs: "Temperatura ambiente.", prepPaciente: "Concurrir con ayuno de 8 hs." },
   { nombre: "Hemograma", area: "Hematología", muestra: "Sangre entera con EDTA", tubo: "Lila (EDTA)", toma: "Punción venosa", urgencia: "Alta", ayuno: "No requiere", procesamiento: "Dentro de las 4 hs", obs: "Temperatura ambiente.", prepPaciente: "No requiere ayuno" },
-  { nombre: "Gota Gruesa", area: "Hematología", muestra: "Punción capilar", tubo: "Extendido", toma: "Punción capilar", urgencia: "Alta", ayuno: "8 hs", procesamiento: "Inmediato", obs: "Enviar en recipiente seco (sin hielo).", prepPaciente: "Concurrir con ayuno de 8 hs." },
+  { nombre: "Gota Gruesa", area: "Hematología", muestra: "Punción capilar", tubo: "Extendido", toma: "Punción capilar", urgencia: "Alta", ayuno: "No requerido", procesamiento: "Inmediato", obs: "Enviar en recipiente seco (sin hielo).", prepPaciente: "No requiere ayuno" },
   { nombre: "Recuento de reticulocitos", area: "Hematología", muestra: "Sangre entera con EDTA", tubo: "Lila (EDTA)", toma: "Punción venosa", urgencia: "Media", ayuno: "8 hs", procesamiento: "Antes de 1 h", obs: "Procesar en el momento o antes de la hora de extracción.", prepPaciente: "Concurrir con ayuno de 8 hs." },
   
   // SECTOR HEMOSTASIA
@@ -25,7 +25,7 @@ nombre: "Tiempo de Protrombina (TP / TPCS2)", area: "Hemostasia", muestra: "Plas
   
   // SECTOR QUÍMICA CLÍNICA
   // =========================================================================
-{ nombre: "Glucemia (GLU)", area: "Química clínica", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa", urgencia: "Alta", ayuno: "8 hs", centrifugar: "Sí", separar: "Sí", procesamiento: "Diario", obs: "Temperatura ambiente." },
+{ nombre: "Glucemia (GLU)", area: "Química clínica", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa", urgencia: "Alta", ayuno: "8 hs", centrifugar: "Sí", separar: "Sí", procesamiento: "Diario", obs: "En toma domiciliaria utilizar tubo de EDTA Fluoruro" },
 { nombre: "Uremia / Urea (URE)", area: "Química clínica", muestra: "Suero o Plasma", tubo: "Rojo/Amarillo", toma: "Punción venosa", urgencia: "Media", ayuno: "8 hs", centrifugar: "Sí", separar: "Sí", procesamiento: "Diario", obs: "Temperatura ambiente." },
 { nombre: "Creatinina Sérica (CRE)", area: "Química clínica", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa", urgencia: "Media", ayuno: "8 hs", centrifugar: "Sí", separar: "Sí", procesamiento: "Diario", obs: "Temperatura ambiente." },
 { nombre: "Ionograma Sérico (ION)", area: "Química clínica", muestra: "Suero", tubo: "Rojo/Amarillo", toma: "Punción venosa", urgencia: "Alta", ayuno: "8 hs", centrifugar: "Sí", separar: "Sí", procesamiento: "Diario", obs: "Temperatura ambiente." },
